@@ -7,19 +7,21 @@ class App extends Component {
   constructor(props){
 		super(props);
 		this.state = {
-      gif: {}
+      gif: ''
     }
   }
 
-  updateGif = (new_gif) => {
-    this.setState({gif: new_gif});
+
+  updateGif = gif => {
+    this.setState({gif})
   }
 
 
   render() {
     return (
       <div>
-        <Note/>
+        <Note updateGif={this.updateGif} />
+        <img src={this.state.gif} alt=""/>
       </div>
     );
   }
